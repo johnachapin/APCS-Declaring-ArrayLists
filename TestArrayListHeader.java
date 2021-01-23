@@ -9,20 +9,22 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import java.io.*;
 
-public class TestHello {
+public class TestArrayListHeader {
 
    @Test
-   public void testHelloWorld()
+   public void testArrayList()
    {
      PrintStream originalOut = System.out;
      ByteArrayOutputStream bos = new ByteArrayOutputStream();
      System.setOut(new PrintStream(bos));
 
      // action
-     Hello.main(null);
+     Main.main(null);
 
      // assertion
-     assertEquals("Hello world!\n", bos.toString());
+      ArrayList<Integer> a = new ArrayList<Integer>();
+      ArrayList<Integer> b = Main.test();
+      assertTrue(a.equals(b));
 
      // undo the binding in System
      System.setOut(originalOut);
